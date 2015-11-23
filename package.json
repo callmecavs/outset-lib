@@ -28,6 +28,7 @@
     "browserify":                      "*",
     "gulp":                            "*",
     "gulp-connect":                    "*",
+    "gulp-header":                     "*",
     "gulp-sourcemaps":                 "*",
     "gulp-uglify":                     "*",
     "lodash.assign":                   "*",
