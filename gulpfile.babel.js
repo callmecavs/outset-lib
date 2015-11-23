@@ -70,10 +70,25 @@ gulp.task('js', build)
 
 // SERVER
 
+const sendMaps = (req, res, next) => {
+  const filename = req.url.split('/').pop()
+  const extension = filename.split('.').pop()
+
+  if(extension === 'css' || extension === 'js') {
+    res.setHeader('X-SourceMap', '/maps/' + filename + '.map')
+  }
+
+  return next()
+}
+
 gulp.task('server', () => {
   return connect.server({
-    root: './dist',
-    port: 3000
+    root: 'dist',
+    port: 3000,
+    livereload: true,
+    middleware: (connect, opt) => {
+      return [ sendMaps ]
+    }
   })
 })
 
