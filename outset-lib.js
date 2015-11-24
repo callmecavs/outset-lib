@@ -30,7 +30,14 @@ fileList.forEach(name => {
   type.isDirectory() && folders.push(name)
 })
 
-// read files, replace templates, write to current directory
+// read files
 files.forEach(file => {
-  const content = fs.readFileSync(file, 'utf8')
+  let content = fs.readFileSync(file, 'utf8')
+
+  // replace templates
+  content = content.replace(/\${ NAME.upper }/g, NAMES.upper)
+  content = content.replace(/\${ NAME.lower }/g, NAMES.lower)
+
+  // write to current directory
+  console.log(content)
 })
