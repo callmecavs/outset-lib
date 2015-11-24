@@ -17,16 +17,20 @@ const NAMES = {
 }
 
 // read the directory for the file list
-const fileNames = fs.readdirSync(FROM)
+const fileList = fs.readdirSync(FROM).map(name => FROM + '/' + name)
 
 // sort into files and folders
 let files = []
 let folders = []
 
-fileNames.forEach(name => {
-  const path = FROM + '/' + name
-  const type = fs.statSync(path)
+fileList.forEach(name => {
+  const type = fs.statSync(name)
 
   type.isFile() && files.push(name)
   type.isDirectory() && folders.push(name)
+})
+
+// read files, replace templates, write to current directory
+files.forEach(file => {
+  const content = fs.readFileSync(file, 'utf8')
 })
