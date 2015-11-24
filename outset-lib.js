@@ -15,3 +15,13 @@ const NAMES = {
   lower: name.toLowerCase(),
   upper: name.charAt(0).toUpperCase() + name.slice(1)
 }
+
+// read the directory for the file list
+fs.readdir(FROM, (error, files) => {
+  if(error) return error
+
+  // read each file, transform it, pipe it out to CWD
+  files.forEach(file => {
+
+  })
+})
