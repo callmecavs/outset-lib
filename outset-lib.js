@@ -17,19 +17,16 @@ const NAMES = {
 }
 
 // read the directory for the file list
-fs.readdir(FROM, (error, names) => {
-  if(error) return error
+const fileNames = fs.readdirSync(FROM)
 
-  let files = []
-  let folders = []
+// sort into files and folders
+let files = []
+let folders = []
 
-  // check for file or folder
-  names.forEach(name => {
-    fs.stat(FROM + '/' + name, (error, stats) => {
-      if(error) return error
+fileNames.forEach(name => {
+  const path = FROM + '/' + name
+  const type = fs.statSync(path)
 
-      stats.isFile() && files.push(name)
-      stats.isDirectory() && folders.push(name)
-    })
-  })
+  type.isFile() && files.push(name)
+  type.isDirectory() && folders.push(name)
 })
