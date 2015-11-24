@@ -17,11 +17,19 @@ const NAMES = {
 }
 
 // read the directory for the file list
-fs.readdir(FROM, (error, files) => {
+fs.readdir(FROM, (error, names) => {
   if(error) return error
 
-  // read each file, transform it, pipe it out to CWD
-  files.forEach(file => {
+  let files = []
+  let folders = []
 
+  // check for file or folder
+  names.forEach(name => {
+    fs.stat(FROM + '/' + name, (error, stats) => {
+      if(error) return error
+
+      stats.isFile() && files.push(name)
+      stats.isDirectory() && folders.push(name)
+    })
   })
 })
