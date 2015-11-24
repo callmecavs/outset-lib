@@ -18,7 +18,7 @@ const sanitized = input.indexOf('.') === -1
   : input.split('.')[0]
 
 // prepare lowercase and capitalized versions of the name
-const NAMES = {
+const NAME = {
   lower: sanitized.toLowerCase(),
   upper: sanitized.charAt(0).toUpperCase() + sanitized.slice(1)
 }
@@ -45,8 +45,8 @@ files.forEach(file => {
   let content = fs.readFileSync(file, 'utf8')
 
   // replace templates
-  content = content.replace(/\${ NAME.upper }/g, NAMES.upper)
-  content = content.replace(/\${ NAME.lower }/g, NAMES.lower)
+  content = content.replace(/\${ NAME.upper }/g, NAME.upper)
+  content = content.replace(/\${ NAME.lower }/g, NAME.lower)
 
   // write to current directory
   console.log(content)
