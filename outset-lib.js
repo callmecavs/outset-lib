@@ -33,6 +33,8 @@ let folders = []
 fileList.forEach(name => {
   const type = fs.statSync(name)
 
+  // TODO: if folder, get the main js file inside, and add that to file array with proper path
+  // TODO: remove the need for the folders array
   type.isFile()
     ? files.push(name)
     : folders.push(name)
