@@ -26,8 +26,9 @@ let folders = []
 fileList.forEach(name => {
   const type = fs.statSync(name)
 
-  type.isFile() && files.push(name)
-  type.isDirectory() && folders.push(name)
+  type.isFile()
+    ? files.push(name)
+    : folders.push(name)
 })
 
 // read files
