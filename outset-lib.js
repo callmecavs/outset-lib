@@ -5,15 +5,22 @@
 const fs = require('fs')
 
 // cache paths
-const CWD = process.cwd()
+const TO = process.cwd()
 const FROM = __dirname + '/lib';
 
-// build names from cmd line arg
-let name = process.argv[2]
+// get name argument
+const input = process.argv[2]
 
+// if the name contains the .js extension, remove it
+// it is added where needed automatically in the templates
+const sanitized = input.indexOf('.') === -1
+  ? input
+  : input.split('.')[0]
+
+// prepare lowercase and capitalized versions of the name
 const NAMES = {
-  lower: name.toLowerCase(),
-  upper: name.charAt(0).toUpperCase() + name.slice(1)
+  lower: sanitized.toLowerCase(),
+  upper: sanitized.charAt(0).toUpperCase() + sanitized.slice(1)
 }
 
 // read the directory for the file list
