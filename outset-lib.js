@@ -6,13 +6,12 @@ const fs = require('fs')
 
 // cache paths
 const TO = process.cwd()
-const FROM = __dirname + '/lib';
+const FROM = __dirname + '/lib'
 
 // get name argument
 const input = process.argv[2]
 
-// if the name contains the .js extension, remove it
-// it is added where needed automatically in the templates
+// remove .js extension, its added where needed automatically in the templates
 const sanitized = input.indexOf('.') === -1
   ? input
   : input.split('.')[0]
@@ -24,30 +23,26 @@ const NAME = {
 }
 
 // read the directory for the file list
-const fileList = fs.readdirSync(FROM).map(name => FROM + '/' + name)
+const fileList = fs.readdirSync(FROM)
 
-// sort into files and folders
-let files = []
-let folders = []
+const folderIndex = fileList.indexOf('src')
+fileList[folderIndex] = 'src/lib.js'
 
-fileList.forEach(name => {
-  const type = fs.statSync(name)
+// make folder for src file
+fs.mkdirSync(TO + '/src')
 
-  // TODO: if folder, get the main js file inside, and add that to file array with proper path
-  // TODO: remove the need for the folders array
-  type.isFile()
-    ? files.push(name)
-    : folders.push(name)
-})
-
-// read files
-files.forEach(file => {
-  let content = fs.readFileSync(file, 'utf8')
+// for each file
+fileList.forEach(file => {
+  // read it
+  let content = fs.readFileSync(FROM + '/' + file, 'utf8')
 
   // replace templates
   content = content.replace(/\${ NAME.upper }/g, NAME.upper)
   content = content.replace(/\${ NAME.lower }/g, NAME.lower)
 
-  // write to current directory
-  console.log(content)
+  // write it
+  fs.writeFileSync(TO + '/' + file, content, 'utf8')
 })
+
+// rename src file
+fs.renameSync(TO + '/src/lib.js', TO + '/src/' + NAME.lower +'.js')
