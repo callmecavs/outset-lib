@@ -41,3 +41,6 @@ fileList.forEach(file => {
 
 // rename JS file
 fs.renameSync(TO + '/src/lib.js', TO + '/src/' + NAME.lower +'.js')
+
+// rename gitignore
+fs.renameSync(TO + '/gitignore', TO + '/.gitignore')
