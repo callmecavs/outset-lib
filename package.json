@@ -21,7 +21,8 @@
 
   "keywords": [
     "boilerplate",
-    "library"
+    "library",
+    "es6"
   ],
 
   "preferGlobal": true
