@@ -24,9 +24,5 @@
     "library"
   ],
 
-  "preferGlobal": true,
-
-  "dependencies": {
-
-  }
+  "preferGlobal": true
 }
