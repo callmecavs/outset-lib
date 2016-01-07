@@ -1,8 +1,8 @@
 # outset-lib
 
-A boilerplate for ES6 libraries.
-
 [![outset-lib on NPM](https://img.shields.io/npm/v/outset-lib.svg)](https://www.npmjs.com/package/outset-lib)
+
+A boilerplate for ES6 libraries.
 
 ## About
 
@@ -13,22 +13,34 @@ This boilerplate aims to provide an unopinionated solution to this problem.
 ## Install
 
 ```bash
-$ npm i outset-lib -g
+$ npm install outset-lib -g
 ```
 
 ## Use
 
-Simply pass `outset-lib` the name of your library. Files will be copied to your current working directory.
+In your terminal:
 
 ```bash
 $ outset-lib <name>
-```
-
-Then install dependencies, and run Gulp:
-
-```bash
-$ npm i
+$ npm install
 $ gulp
 ```
+
+In your browser:
+
+```
+http://localhost:3000/
+```
+
+Work in the `src` folder. Distribute from the `dist` folder.
+
+## Docs
+
+* **Creators**: Write in ES6/7 syntax via [Babel.js](https://babeljs.io/), and bundle modules via [browserify/watchify](https://github.com/substack/node-browserify)
+* **Users**: Enjoy distribution files transpiled down to ES5, and wrapped in a UMD wrapper
+
+## License
+
+MIT. © 2016 Michael Cavalea
 
 [![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
