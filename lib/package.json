@@ -3,7 +3,8 @@
   "version":     "0.0.1",
   "description": "",
   "homepage":    "",
-  "main":        "",
+  "main":        "dist/${ NAME.lower }.min.js",
+  "jsnext:main": "src/${ NAME.lower }.js",
 
   "author":  "",
   "license": "",
@@ -21,20 +22,15 @@
   ],
 
   "devDependencies": {
-    "babel-core":                      "*",
-    "babel-preset-es2015":             "*",
-    "babel-plugin-add-module-exports": "*",
-    "babelify":                        "*",
-    "browser-sync":                    "*",
-    "browserify":                      "*",
-    "gulp":                            "*",
-    "gulp-header":                     "*",
-    "gulp-sourcemaps":                 "*",
-    "gulp-uglify":                     "*",
-    "lodash.assign":                   "*",
-    "node-notifier":                   "*",
-    "vinyl-buffer":                    "*",
-    "vinyl-source-stream":             "*",
-    "watchify":                        "*"
+    "babel-preset-es2015-rollup": "*",
+    "browser-sync":               "*",
+    "del":                        "*",
+    "gulp":                       "*",
+    "node-notifier":              "*",
+    "rollup":                     "*",
+    "rollup-plugin-babel":        "*",
+    "rollup-plugin-commonjs":     "*",
+    "rollup-plugin-node-resolve": "*",
+    "rollup-plugin-uglify":       "*"
   }
 }
