@@ -4,8 +4,8 @@
   "description": "A boilerplate for ES6 libraries.",
   "homepage":    "https://github.com/callmecavs/outset-lib",
 
-  "author":  "callmecavs",
-  "license": "MIT",
+  "author":  "Michael Cavalea",
+  "license": "GPL-3.0",
 
   "bin": {
     "outset-lib": "outset-lib.js"

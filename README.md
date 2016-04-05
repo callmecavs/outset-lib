@@ -36,7 +36,7 @@ Work in the `src` folder. Distribute from the `dist` folder.
 
 ## Docs
 
-* **Creators**: Write in ES6/7 syntax via [Babel.js](https://babeljs.io/), and bundle modules via [browserify/watchify](https://github.com/substack/node-browserify)
+* **Creators**: Write in ES6/7 syntax via [Babel.js](https://babeljs.io/), and bundle modules via [rollup](https://github.com/rollup/rollup)
 * **Users**: Enjoy distribution files transpiled down to ES5, and wrapped in a UMD wrapper
 
 ## License
