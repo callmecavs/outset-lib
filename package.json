@@ -1,6 +1,6 @@
 {
   "name":        "outset-lib",
-  "version":     "0.0.2",
+  "version":     "0.1.0",
   "description": "A boilerplate for ES6 libraries.",
   "homepage":    "https://github.com/callmecavs/outset-lib",
 
