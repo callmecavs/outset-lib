@@ -1,11 +1,11 @@
 {
   "name":        "outset-lib",
-  "version":     "0.1.0",
+  "version":     "1.0.0",
   "description": "A boilerplate for ES6 libraries.",
   "homepage":    "https://github.com/callmecavs/outset-lib",
 
   "author":  "Michael Cavalea",
-  "license": "GPL-3.0",
+  "license": "MIT",
 
   "bin": {
     "outset-lib": "outset-lib.js"
