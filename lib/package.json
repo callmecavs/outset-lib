@@ -23,6 +23,7 @@
 
   "devDependencies": {
     "babel-preset-es2015-rollup": "*",
+    "babel-preset-stage-0":       "*",
     "browser-sync":               "*",
     "del":                        "*",
     "gulp":                       "*",
