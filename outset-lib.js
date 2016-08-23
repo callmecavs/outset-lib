@@ -6,7 +6,7 @@ const fs = require('fs')
 
 // cache paths
 const TO = process.cwd()
-const FROM = __dirname + '/lib'
+const FROM = __dirname + '/template'
 
 // prepare name from parameter
 const input = process.argv[2]
