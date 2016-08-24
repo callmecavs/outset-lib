@@ -6,7 +6,7 @@ A boilerplate for ES6 libraries.
 
 ## About
 
-Contributing a library to the JS community should be painless, though the current state of the language itself makes it a bit tedious. Allowing creators to use the niceties of ES6, while enabling users to consume the library however they prefer, creates overhead in the process of making and distributing code.
+Contributing a library to the JS community should be painless, though the current state of the language itself makes it a bit tedious. Allowing creators to use the niceties of ES next, while enabling users to consume the library however they prefer, creates overhead in the process of making and distributing code.
 
 This boilerplate aims to provide an unopinionated solution to this problem.
 
