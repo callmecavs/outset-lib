@@ -1,20 +1,19 @@
 {
   "name":        "${ NAME.lower }.js",
-  "version":     "0.0.1",
   "description": "",
-  "homepage":    "",
-  "main":        "dist/${ NAME.lower }.min.js",
+
+  "main":        "dist/${ NAME.lower }.js",
   "jsnext:main": "src/${ NAME.lower }.js",
 
-  "author":  "",
+  "version": "0.0.1",
   "license": "",
 
-  "repository": {
-    "type": "git",
-    "url":  ""
-  },
-  "bugs": {
-    "url": ""
+  "repository": "",
+
+  "author": {
+    "name":  "",
+    "email": "",
+    "url":   ""
   },
 
   "keywords": [

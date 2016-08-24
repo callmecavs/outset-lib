@@ -25,28 +25,50 @@ const onError = function(error) {
 
 // clean
 
-gulp.task('clean', () => del('dist'))
+gulp.task('clean', () => {
+  return del(
+    'dist/**.js',
+    '!dist',
+    '!dist/index.html'
+  )
+})
 
 // attribution
 
 const attribution =
 `/*!
  * ${ NAME.upper }.js ${ json.version } - ${ json.description }
- * Copyright (c) ${ new Date().getFullYear() } ${ json.author } - ${ json.homepage }
+ * Copyright (c) ${ new Date().getFullYear() } ${ json.author.name } - https://github.com/${ json.repository }
  * License: ${ json.license }
  */
 `
 
 // js
 
-const read = {
-  entry: 'src/${ NAME.lower }.js',
+const base = [
+  resolve({
+    jsnext: true,
+    main: true,
+    browser: true
+  }),
+  commonjs(),
+  babel({
+    // TODO: make this be a function that checks for the presence of a package's jsnext:main field
+    exclude: 'node_modules/**',
+  })
+]
+
+const minified = [
+  uglify()
+]
+
+const read = flag => ({
+  entry: 'src/test.js',
   sourceMap: true,
-  plugins: [
-    babel({ exclude: 'node_modules/**' }),
-    uglify()
-  ]
-}
+  plugins: flag
+    ? base.concat(minified)
+    : base
+})
 
 const write = {
   format: 'umd',
@@ -56,21 +78,28 @@ const write = {
 }
 
 gulp.task('js', () => {
-  return rollup
-    .rollup(read)
-    .then(bundle => {
-      // generate the bundle
-      const files = bundle.generate(write)
+  return Promise
+    .all([
+      rollup.rollup(read(false)),
+      rollup.rollup(read(true))
+    ])
+    .then(results => {
+      const files = results.map(res => res.generate(write))
 
-      // cache path to JS dist file
-      const dist = 'dist/${ NAME.lower }.min.js'
+      // cache path to JS dist files
+      const normal = 'dist/${ NAME.lower }.js'
+      const minified = 'dist/${ NAME.lower }.min.js'
 
-      // write the attribution
-      fs.writeFileSync(dist, attribution)
+      // write attributions
+      fs.writeFileSync(normal, attribution)
+      fs.writeFileSync(minified, attribution)
 
-      // write the JS and sourcemap
-      fs.appendFileSync(dist, files.code)
-      fs.writeFileSync('dist/maps/${ NAME.lower }.min.js.map', files.map.toString())
+      // write the sourcemap
+      fs.writeFileSync('dist/maps/${ NAME.lower }.js.map', files[0].map.toString())
+
+      // write JS files
+      fs.appendFileSync(normal, files[0].code)
+      fs.appendFileSync(minified, files[1].code)
     })
     .catch(onError)
 })
@@ -114,10 +143,18 @@ gulp.task('watch', () => {
 
 // build and default tasks
 
+const exists = path => {
+  try {
+    return fs.statSync(path).isDirectory()
+  } catch(error) {}
+
+  return false
+}
+
 gulp.task('build', ['clean'], () => {
   // create dist directories
-  fs.mkdirSync('dist')
-  fs.mkdirSync('dist/maps')
+  if(!exists('dist')) fs.mkdirSync('dist')
+  if(!exists('dist/maps')) fs.mkdirSync('dist/maps')
 
   // run the tasks
   gulp.start('js')

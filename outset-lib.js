@@ -6,7 +6,7 @@ const fs = require('fs')
 
 // cache paths
 const TO = process.cwd()
-const FROM = __dirname + '/lib'
+const FROM = __dirname + '/template'
 
 // prepare name from parameter
 const input = process.argv[2]
@@ -23,11 +23,15 @@ const NAME = {
 // get the file list
 const fileList = fs.readdirSync(FROM)
 
-const folderIndex = fileList.indexOf('src')
-fileList[folderIndex] = 'src/lib.js'
+// append to folder results
+const srcIndex = fileList.indexOf('src')
+const distIndex = fileList.indexOf('dist')
+fileList[srcIndex] = 'src/lib.js'
+fileList[distIndex] = 'dist/index.html'
 
-// make folder for JS file
+// make folders for files
 fs.mkdirSync(TO + '/src')
+fs.mkdirSync(TO + '/dist')
 
 // for each file - read, replace, write
 fileList.forEach(file => {
