@@ -25,7 +25,13 @@ const onError = function(error) {
 
 // clean
 
-gulp.task('clean', () => del('dist', '!dist/index.html'))
+gulp.task('clean', () => {
+  return del(
+    'dist/**.js',
+    '!dist',
+    '!dist/index.html'
+  )
+})
 
 // attribution
 
