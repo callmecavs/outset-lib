@@ -1,8 +1,8 @@
 # outset-lib
 
-[![outset-lib on NPM](https://img.shields.io/npm/v/outset-lib.svg)](https://www.npmjs.com/package/outset-lib)
+[![outset-lib on NPM](https://img.shields.io/npm/v/outset-lib.svg?style=flat-square)](https://www.npmjs.com/package/outset-lib)
 
-A boilerplate for ES6 libraries.
+A boilerplate for modern JavaScript libraries.
 
 ## About
 
