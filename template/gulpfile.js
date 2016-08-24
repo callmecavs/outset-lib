@@ -137,10 +137,18 @@ gulp.task('watch', () => {
 
 // build and default tasks
 
+const exists = path => {
+  try {
+    return fs.statSync(path).isDirectory()
+  } catch(error) {}
+
+  return false
+}
+
 gulp.task('build', ['clean'], () => {
   // create dist directories
-  fs.mkdirSync('dist')
-  fs.mkdirSync('dist/maps')
+  if(!exists('dist')) fs.mkdirSync('dist')
+  if(!exists('dist/maps')) fs.mkdirSync('dist/maps')
 
   // run the tasks
   gulp.start('js')
