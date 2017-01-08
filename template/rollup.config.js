@@ -4,7 +4,7 @@ import babelrc from 'babelrc-rollup'
 const info = require('./package.json')
 
 const config = {
-  entry: 'lib/${ NAME.lower }.js'.
+  entry: 'lib/${ NAME.lower }.js',
   plugins: [ babel(babelrc()) ],
   targets: [
     {
