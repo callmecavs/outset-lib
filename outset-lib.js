@@ -53,3 +53,6 @@ fs.renameSync(COPY_TO + '/src/index.js', COPY_TO + '/src/' + NAME.lower +'.js')
 
 // rename gitignore
 fs.renameSync(COPY_TO + '/gitignore', COPY_TO + '/.gitignore')
+
+// rename npmignore
+fs.renameSync(COPY_TO + '/npmignore', COPY_TO + '/.npmignore')
