@@ -20,7 +20,7 @@
   "scripts": {
     "prebuild": "eslint src",
     "build":    "rollup -c",
-    "watch":    "rollup -c -w"
+    "dev":      "rollup -c -w -m inline"
   },
 
   "keywords": [
