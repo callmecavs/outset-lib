@@ -1,11 +1,10 @@
 import babel from 'rollup-plugin-babel'
-import babelrc from 'babelrc-rollup'
 
 const info = require('./package.json')
 
 const config = {
   entry: 'src/${ NAME.lower }.js',
-  plugins: [ babel(babelrc()) ],
+  plugins: [ babel() ],
   targets: [
     {
       dest: info.main,
