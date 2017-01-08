@@ -4,8 +4,6 @@
 
 A boilerplate for vanilla JavaScript libraries.
 
-## About
-
 ## Install
 
 Using NPM, install outset-lib globally.
