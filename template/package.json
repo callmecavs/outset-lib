@@ -18,10 +18,15 @@
   },
 
   "scripts": {
-    "prebuild": "eslint src",
-    "build":    "rollup -c",
-    "dev":      "rollup -c -w -m inline"
+    "prebuild":   "eslint src",
+    "build":      "rollup -c",
+    "dev":        "rollup -c -w -m inline",
+    "prepublish": "npm run build"
   },
+
+  "files": [
+    "dist"
+  ],
 
   "keywords": [
 
