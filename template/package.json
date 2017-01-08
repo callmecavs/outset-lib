@@ -3,7 +3,8 @@
   "description": "",
 
   "main":        "dist/${ NAME.lower }.js",
-  "jsnext:main": "src/${ NAME.lower }.js",
+  "module":      "dist/${ NAME.lower }.module.js",
+  "jsnext:main": "dist/${ NAME.lower }.module.js",
 
   "version": "0.0.1",
   "license": "",
@@ -21,6 +22,14 @@
   ],
 
   "devDependencies": {
-
+    "babel-preset-es2015": "^6.18.0",
+    "babelrc-rollup": "^3.0.0",
+    "eslint": "^3.13.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "rollup": "^0.41.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-watch": "^3.2.2"
   }
 }
