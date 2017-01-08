@@ -5,7 +5,7 @@
 const fs = require('fs')
 
 // cache paths
-const CPOY_FROM = __dirname + '/template'
+const COPY_FROM = __dirname + '/template'
 const COPY_TO   = process.cwd()
 
 const FILES = [
