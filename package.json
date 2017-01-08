@@ -7,20 +7,26 @@
 
   "repository": "callmecavs/outset-lib",
 
-  "bin": {
-    "outset-lib": "outset-lib.js"
-  },
-
   "author": {
     "name":  "Michael Cavalea",
     "email": "callmecavs@gmail.com",
     "url":   "http://callmecavs.com/"
   },
 
+  "bin": {
+    "outset-lib": "outset-lib.js"
+  },
+
   "keywords": [
     "boilerplate",
+    "browser",
+    "bundle",
+    "cli",
+    "es6",
+    "modules",
     "library",
-    "es6"
+    "rollup",
+    "scaffold"
   ],
 
   "preferGlobal": true
