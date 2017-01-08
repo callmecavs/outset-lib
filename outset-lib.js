@@ -14,6 +14,7 @@ const FILES = [
   '.babelrc',
   '.eslintrc',
   'gitignore',
+  'npmignore',
   'package.json',
   'README.md',
   'rollup.config.js'

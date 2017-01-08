@@ -2,7 +2,7 @@
   "name":        "outset-lib",
   "description": "A boilerplate for vanilla JavaScript libraries.",
 
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "MIT",
 
   "repository": "callmecavs/outset-lib",
