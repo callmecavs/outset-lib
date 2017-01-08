@@ -21,7 +21,8 @@
     "prebuild":   "eslint src",
     "build":      "rollup -c",
     "dev":        "rollup -c -w -m inline",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "server":     "python -m SimpleHTTPServer 3000"
   },
 
   "files": [
