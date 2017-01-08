@@ -9,12 +9,10 @@ const config = {
     {
       dest: info.main,
       format: 'umd',
-      moduleName: '${ NAME.lower }',
-      sourceMap: true
+      moduleName: '${ NAME.lower }'
     }, {
       dest: info.module,
-      format: 'es',
-      sourceMap: true
+      format: 'es'
     }
   ]
 }
