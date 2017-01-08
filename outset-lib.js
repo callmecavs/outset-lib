@@ -5,46 +5,51 @@
 const fs = require('fs')
 
 // cache paths
-const TO = process.cwd()
-const FROM = __dirname + '/template'
+const COPY_FROM = __dirname + '/template'
+const COPY_TO   = process.cwd()
 
-// prepare name from parameter
+const FILES = [
+  'src/index.js',
+  'test/manual.html',
+  '.babelrc',
+  '.eslintrc',
+  'gitignore',
+  'package.json',
+  'README.md',
+  'rollup.config.js'
+]
+
+// prepare names from arg
 const input = process.argv[2]
 
-const sanitized = input.indexOf('.') === -1
-  ? input
-  : input.split('.')[0]
+const sanitized = input.includes('.')
+  ? input.substring(0, input.indexOf('.'))
+  : input
 
 const NAME = {
   lower: sanitized.toLowerCase(),
   upper: sanitized.charAt(0).toUpperCase() + sanitized.slice(1)
 }
 
-// get the file list
-const fileList = fs.readdirSync(FROM)
+// create required directories
+fs.mkdirSync(COPY_TO + '/src')
+fs.mkdirSync(COPY_TO + '/test')
 
-// append to folder results
-const srcIndex = fileList.indexOf('src')
-const distIndex = fileList.indexOf('dist')
-fileList[srcIndex] = 'src/lib.js'
-fileList[distIndex] = 'dist/index.html'
+FILES.forEach(name => {
+  // read content
+  const content = fs.readFileSync(COPY_FROM + '/' + name, 'utf8')
 
-// make folders for files
-fs.mkdirSync(TO + '/src')
-fs.mkdirSync(TO + '/dist')
+  // replace names
+  const transformed = content
+    .replace(/\${ NAME.upper }/g, NAME.upper)
+    .replace(/\${ NAME.lower }/g, NAME.lower)
 
-// for each file - read, replace, write
-fileList.forEach(file => {
-  let content = fs.readFileSync(FROM + '/' + file, 'utf8')
-
-  content = content.replace(/\${ NAME.upper }/g, NAME.upper)
-  content = content.replace(/\${ NAME.lower }/g, NAME.lower)
-
-  fs.writeFileSync(TO + '/' + file, content, 'utf8')
+  // write file
+  fs.writeFileSync(COPY_TO + '/' + name, transformed, 'utf8')
 })
 
-// rename JS file
-fs.renameSync(TO + '/src/lib.js', TO + '/src/' + NAME.lower +'.js')
+// rename index
+fs.renameSync(COPY_TO + '/src/index.js', COPY_TO + '/src/' + NAME.lower +'.js')
 
 // rename gitignore
-fs.renameSync(TO + '/gitignore', TO + '/.gitignore')
+fs.renameSync(COPY_TO + '/gitignore', COPY_TO + '/.gitignore')

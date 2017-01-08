@@ -1,15 +1,11 @@
 {
   "name":        "outset-lib",
-  "description": "A boilerplate for modern JavaScript libraries.",
+  "description": "A boilerplate for vanilla JavaScript libraries.",
 
-  "version": "1.1.1",
+  "version": "2.0.0",
   "license": "MIT",
 
   "repository": "callmecavs/outset-lib",
-
-  "bin": {
-    "outset-lib": "outset-lib.js"
-  },
 
   "author": {
     "name":  "Michael Cavalea",
@@ -17,10 +13,21 @@
     "url":   "http://callmecavs.com/"
   },
 
+  "bin": {
+    "outset-lib": "outset-lib.js"
+  },
+
   "keywords": [
     "boilerplate",
+    "browser",
+    "bundle",
+    "cli",
+    "es6",
+    "modules",
     "library",
-    "es6"
+    "rollup",
+    "scaffold",
+    "vanilla"
   ],
 
   "preferGlobal": true
