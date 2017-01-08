@@ -2,7 +2,7 @@
 
 [![outset-lib on NPM](https://img.shields.io/npm/v/outset-lib.svg?style=flat-square)](https://www.npmjs.com/package/outset-lib)
 
-A boilerplate for modern JavaScript libraries.
+A boilerplate for vanilla JavaScript libraries.
 
 ## About
 
