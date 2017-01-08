@@ -21,16 +21,6 @@
   ],
 
   "devDependencies": {
-    "babel-preset-es2015-rollup": "*",
-    "babel-preset-stage-0":       "*",
-    "browser-sync":               "*",
-    "del":                        "*",
-    "gulp":                       "*",
-    "node-notifier":              "*",
-    "rollup":                     "*",
-    "rollup-plugin-babel":        "*",
-    "rollup-plugin-commonjs":     "*",
-    "rollup-plugin-node-resolve": "*",
-    "rollup-plugin-uglify":       "*"
+
   }
 }
