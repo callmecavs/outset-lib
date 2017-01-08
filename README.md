@@ -16,6 +16,21 @@ $ npm install outset-lib -g
 
 ## Use
 
+To create a new project:
+
+```bash
+# make a directory for it
+$ mkdir project
+$ cd project
+
+# run outset-lib, passing the project name
+$ outset-lib project
+
+# install dependencies, and start coding
+$ npm i
+$ npm run dev
+```
+
 ## Linting
 
 [![JS Standard Style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
