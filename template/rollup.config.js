@@ -9,7 +9,7 @@ const config = {
     {
       dest: info.main,
       format: 'umd',
-      moduleName: '${ NAME.lower }'
+      moduleName: '${ NAME.upper }'
     }, {
       dest: info.module,
       format: 'es'
