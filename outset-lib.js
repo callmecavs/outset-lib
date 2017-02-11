@@ -10,6 +10,7 @@ const COPY_TO   = process.cwd()
 
 const FILES = [
   'src/index.js',
+  'test/index.js',
   'test/manual.html',
   '.babelrc',
   '.eslintrc',
