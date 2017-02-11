@@ -13,6 +13,7 @@ const FILES = [
   'test/manual.html',
   '.babelrc',
   '.eslintrc',
+  '.travis.yml',
   'gitignore',
   'npmignore',
   'package.json',
