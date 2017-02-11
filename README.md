@@ -4,6 +4,13 @@
 
 A boilerplate for vanilla JavaScript libraries.
 
+## Features
+
+* **Convenient.** Scaffold a project by running 1 command in your terminal.
+* **Customized.** The library name you choose is used to pre-populate the template.
+* **Modern.** Write ES6/7 syntax, and let users consume it how they want to (AMD, CommonJS, or script tag).
+* **Lean.** Distribution files support users with tree-shaking bundlers (and the `package.json` is setup correctly).
+
 ## Install
 
 Using NPM, install outset-lib globally.
