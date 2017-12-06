@@ -5,9 +5,10 @@
 const fs = require('fs')
 
 // cache paths
-const COPY_FROM = __dirname + '/template'
-const COPY_TO   = process.cwd()
+const COPY_FROM = `${ __dirname }/template`
+const COPY_TO = process.cwd()
 
+// cache template file list
 const FILES = [
   'src/index.js',
   'test/index.js',
@@ -21,40 +22,23 @@ const FILES = [
   'rollup.config.js'
 ]
 
-// prepare names from arg
-const input = process.argv[2]
-
-const sanitized = input.includes('.')
-  ? input.substring(0, input.indexOf('.'))
-  : input
-
-const NAME = {
-  lower: sanitized.toLowerCase(),
-  upper: sanitized.charAt(0).toUpperCase() + sanitized.slice(1)
-}
+// cache lib name
+const NAME = process.argv[2]
 
 // create required directories
-fs.mkdirSync(COPY_TO + '/src')
-fs.mkdirSync(COPY_TO + '/test')
+fs.mkdirSync(`${ COPY_TO }/src`)
+fs.mkdirSync(`${ COPY_TO }/test`)
 
-FILES.forEach(name => {
-  // read content
-  const content = fs.readFileSync(COPY_FROM + '/' + name, 'utf8')
+// copy over template files
+FILES.forEach(path => {
+  const content = fs
+    .readFileSync(`${ COPY_FROM }/${ path }`, 'utf8')
+    .replace(/\${ NAME }/g, NAME)
 
-  // replace names
-  const transformed = content
-    .replace(/\${ NAME.upper }/g, NAME.upper)
-    .replace(/\${ NAME.lower }/g, NAME.lower)
-
-  // write file
-  fs.writeFileSync(COPY_TO + '/' + name, transformed, 'utf8')
+  fs.writeFileSync(`${ COPY_TO }/${ path }`, content, 'utf8')
 })
 
-// rename index
-fs.renameSync(COPY_TO + '/src/index.js', COPY_TO + '/src/' + NAME.lower +'.js')
-
-// rename gitignore
-fs.renameSync(COPY_TO + '/gitignore', COPY_TO + '/.gitignore')
-
-// rename npmignore
-fs.renameSync(COPY_TO + '/npmignore', COPY_TO + '/.npmignore')
+// rename index and dotfiles
+fs.renameSync(`${ COPY_TO }/src/index.js`, `${ COPY_TO }/src/${ NAME }.js`)
+fs.renameSync(`${ COPY_TO }/gitignore`, `${ COPY_TO }/.gitignore`)
+fs.renameSync(`${ COPY_TO }/npmignore`, `${ COPY_TO }/.npmignore`)
