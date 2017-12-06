@@ -36,12 +36,6 @@ $ npm i
 $ npm run dev
 ```
 
-## Linting
-
-[![JS Standard Style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
-
 ## License
 
 MIT. © 2017 Michael Cavalea
-
-[![Built With Love](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
