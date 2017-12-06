@@ -1,5 +1,5 @@
 {
-  "name":        "${ NAME }.js",
+  "name":        "${ NAME }",
   "description": "",
 
   "main":        "dist/${ NAME }.js",
