@@ -18,6 +18,9 @@ const config = {
             }
           }
         ]
+      ],
+      plugins: [
+        "@babel/plugin-syntax-object-rest-spread"
       ]
     })
   ],
