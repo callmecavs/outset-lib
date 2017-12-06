@@ -11,7 +11,7 @@ const config = {
       babelrc: false,
       presets: [
         [
-          'env', {
+          '@babel/preset-env', {
             modules: false,
             targets: {
               browsers: ['last 2 versions']
