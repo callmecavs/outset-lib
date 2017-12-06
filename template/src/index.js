@@ -1,5 +1,5 @@
-const ${ NAME.lower } = () => {
+const ${ NAME } = () => {
 
 }
 
-export default ${ NAME.lower }
+export default ${ NAME }

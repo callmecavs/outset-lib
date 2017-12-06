@@ -1,10 +1,10 @@
 {
-  "name":        "${ NAME.lower }.js",
+  "name":        "${ NAME }.js",
   "description": "",
 
-  "main":        "dist/${ NAME.lower }.js",
-  "module":      "dist/${ NAME.lower }.module.js",
-  "jsnext:main": "dist/${ NAME.lower }.module.js",
+  "main":        "dist/${ NAME }.js",
+  "module":      "dist/${ NAME }.module.js",
+  "jsnext:main": "dist/${ NAME }.module.js",
 
   "version": "0.0.1",
   "license": "",
