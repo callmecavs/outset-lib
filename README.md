@@ -23,17 +23,15 @@ $ npm install outset-lib -g
 
 To create a new project:
 
-```bash
+```sh
 # make a directory for it
-$ mkdir project
-$ cd project
+$ mkdir project && cd project
 
 # run outset-lib, passing the project name
 $ outset-lib project
 
 # install dependencies, and start coding
-$ npm i
-$ npm run dev
+$ npm i && npm run dev
 ```
 
 ## License
