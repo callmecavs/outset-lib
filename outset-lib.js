@@ -13,7 +13,6 @@ const FILES = [
   'src/index.js',
   'test/index.js',
   'test/manual.html',
-  '.eslintrc',
   '.travis.yml',
   'gitignore',
   'npmignore',
