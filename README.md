@@ -36,4 +36,4 @@ $ npm i && npm run dev
 
 ## License
 
-MIT. © 2017 Michael Cavalea
+[MIT](https://opensource.org/licenses/MIT). © 2017 Michael Cavalea
