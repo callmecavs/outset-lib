@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve'
 const info = require('./package.json')
 
 const config = {
-  entry: 'src/${ NAME }.js',
+  input: 'src/${ NAME }.js',
   plugins: [
     resolve(),
     babel({
@@ -21,13 +21,13 @@ const config = {
       ]
     })
   ],
-  targets: [
+  output: [
     {
-      dest: info.main,
+      file: info.main,
       format: 'umd',
-      moduleName: '${ NAME }'
+      name: '${ NAME }'
     }, {
-      dest: info.module,
+      file: info.module,
       format: 'es'
     }
   ]
